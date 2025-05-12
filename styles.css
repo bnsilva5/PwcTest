@@ -1,0 +1,468 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.2rem 3rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 90px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.main-nav li {
+  position: relative;
+  height: 100%;
+  /* Asegura que el li ocupa toda la altura del header */
+  display: flex;
+  align-items: flex-end;
+  /* Para alinear el texto hacia abajo */
+}
+
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -85%;
+  /* Pegado al borde inferior del header */
+  height: 4px;
+  /* Más gruesa */
+  width: 120%;
+  /* Más ancha que el texto */
+  background-color: black;
+  transform: translate(-50%, 100%);
+  /* Comienza fuera, hacia abajo */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.main-nav a:hover::after {
+  transform: translate(-50%, 0);
+  /* Sube desde abajo */
+  opacity: 1;
+}
+
+/* SEARCH SECTION */
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.first-section {
+  background-image: url('images/img2.png'); /* Ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  height: 500px; /* ← ← ← Ajusta esta altura aquí */
+  position: relative;
+  color: Black;
+  padding: 2rem;
+}
+
+.first-content {
+  position: absolute;
+  top: 10%; /* ← ← ← Mueve el texto en el eje Y desde arriba */
+  left: 2%;
+  max-width: 800px;
+}
+
+.first-content h1 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+}
+
+.first-content em {
+  font-style: georgia, serif;
+  font-size: 3.5rem;
+  color: #000000; /* ejemplo para destacar */
+}
+
+.see-more-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  margin-top: 15rem;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.see-more-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.cards-section {
+  padding: 4rem 2rem;
+  background-color: #FFE;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem; /* Mayor separación entre cards */
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px; /* ← un poco más angosta */
+}
+
+.card img {
+  width: 100%; /* ← más natural, sin desbordarse */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.card.middle img {
+  height: 240px; /* ← un poco más corta que las otras */
+}
+
+.card-text {
+  margin-top: 2rem; /* ← más espacio debajo de imagen */
+  font-size: 1rem;
+  text-align: center;
+  color: #222;
+}
+
+.card-btn {
+  margin-top: 1rem; /* ← mayor separación del texto */
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #e0301e;
+  background-color: #e0301e;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-btn span {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.card-btn:hover span {
+  color: #e0301e;
+}
+
+/* === RESPONSIVE (para móviles) === */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .card {
+    width: 90%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card img {
+    width: 100%;
+    height: 240px;
+  }
+
+  .card.middle img {
+    height: 200px;
+  }
+
+  .card-text {
+    margin-top: 1.5rem;
+  }
+
+  .card-btn {
+    margin-top: 1rem;
+  }
+  
+}
+
+.insight-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+  gap: 2rem; /* reduce separación entre texto e imagen */
+}
+
+.insight-content {
+  flex: 1;
+  max-width: 500px;
+  text-align: left; /* Alinea texto a la izquierda */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea texto a la izquierda */
+}
+
+.insight-title {
+  font-size: 1.8rem;
+  font-family: Georgia, serif;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.insight-subtitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.insight-description {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.insight-btn {
+  align-self: center; /* ← Centra solo el botón */
+  padding: 0.7rem 1.5rem;
+  border: 1px solid transparent;
+  background-color: #d04a02;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.insight-btn span {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.insight-btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.insight-btn:hover span {
+  color: #d04a02;
+}
+
+.insight-image {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem; /* baja un poco la imagen */
+}
+
+.insight-image img {
+  width: 100%;
+  max-width: 600px; /* Aumenta este valor según lo necesites */
+  height: auto;
+  object-fit: cover;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .insight-section {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .insight-content, .insight-image {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .insight-content {
+    margin-bottom: 2rem;
+  }
+
+  .insight-title {
+    font-size: 1.5rem;
+  }
+}
+
+/** ------------------------------- */
+.encuesta-section {
+  background-image: url('images/hom5.jpeg');
+  background-size: cover;
+  background-position: center;
+  transition: background-size 0.4s ease;
+  padding: 4rem 2rem 0;
+  position: relative;
+}
+
+.encuesta-section:hover {
+  background-size: 105%;
+}
+
+.encuesta-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 700px;
+  margin-left: 2rem;
+}
+
+.encuesta-box {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.white-box {
+  background-color: white;
+  color: black;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.red-box {
+  background-color: #e0301e;
+  color: white;
+  width: 100%;
+}
+
+.encuesta-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.encuesta-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 2rem;
+}
+
+.encuesta-btn {
+  padding: 0.5rem 1.2rem;
+  background-color: #ffb600;
+  color: black;
+  font-weight: bold;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.encuesta-btn:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.encuesta-footer {
+  width:100%;
+  background-color: #2d2d2d;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .encuesta-section {
+    padding: 2rem 1rem;
+    background-position: top;
+  }
+
+  .encuesta-overlay {
+    margin-left: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .white-box,
+  .red-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .encuesta-button-wrapper {
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  .encuesta-btn {
+    width: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
